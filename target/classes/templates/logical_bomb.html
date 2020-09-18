@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Logical Bomb</title>
+</head>
+<body>
+<div th:if="${count} < 4">
+    <button>Any function</button>
+    <br>
+
+    <button>Any function</button>
+    <br>
+
+    <button>Any function</button>
+    <br>
+
+    <button>Any function</button>
+    <br>
+
+    <button>Any function</button>
+    <br>
+</div>
+<div th:if="${count} > 3">
+    <p>Please, buy full version</p>
+</div>
+</body>
+</html>
+
