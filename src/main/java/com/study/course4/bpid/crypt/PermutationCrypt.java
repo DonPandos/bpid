@@ -7,6 +7,7 @@ import java.util.*;
 public class PermutationCrypt {
 
     public static Pair<String, String> encode(String str){
+        System.out.println("to encode: " + str);
         String key = "";
         String encodeString = "";
         Integer arrWidth = (int)Math.ceil((double)str.length()/5);
@@ -14,7 +15,6 @@ public class PermutationCrypt {
         int counter = 0;
         for(int j = 0; j < 5; j++){
           for(int i = 0; i < arrWidth; i++){
-                System.out.println(i + ", " + j);
                 try {
                     arr[i][j] = str.charAt(counter) != ' ' ? str.charAt(counter) : '_';
                 } catch (StringIndexOutOfBoundsException e){
@@ -24,9 +24,6 @@ public class PermutationCrypt {
                 }
             }
         } // заполнение массива строкой
-
-        System.out.println(Arrays.deepToString(arr));
-
         Integer iterationsCount = (int)Math.ceil((double)arrWidth / 10); // количество итераций
         Integer currIteration = iterationsCount;
         while (currIteration > 0){
@@ -43,7 +40,6 @@ public class PermutationCrypt {
             Collections.shuffle(randomList); // генерация случайного ключа
             for(Integer num : randomList){
                 int i = ((iterationsCount - currIteration) * 10) + num;
-                System.out.println("i: " + i);
                 for(int j = 0; j < 5; j++){
                     encodeString += arr[i][j];
                 }
@@ -52,7 +48,6 @@ public class PermutationCrypt {
             currIteration -= 1;
         }
         return new Pair<>(key, encodeString);
-        //tests
     }
 
     public static String decode(Pair<String, String> keyValue){
