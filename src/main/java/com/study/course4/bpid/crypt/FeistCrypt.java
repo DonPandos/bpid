@@ -2,9 +2,6 @@ package com.study.course4.bpid.crypt;
 
 
 import javafx.util.Pair;
-
-import java.io.File;
-import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -39,15 +36,21 @@ public class FeistCrypt {
             final int pos = i;
             threads.add(new Thread(() -> { // создаем поток, который шифрует блок
                 String block = blocks.get(pos); // получаем блок
-                String L0 = block.substring(0, 8); // делим на правую и левую часть
-                String R0 = block.substring(8, 16);
+//                String L0 = block.substring(0, 8); // делим на правую и левую часть
+//                String R0 = block.substring(8, 16);
+                String x1 = block.substring(0, 4);
+                String x2 = block.substring(4, 8);
+                String x3 = block.substring(8, 12);
+                String x4 = block.substring(12, 16);
                 for(String key : keys) { //для каждого ключа проводим раунд шифрования
-                    String prevL0 = L0;
-                    String L0xorK0 = Base64Crypt.encode(L0, key);
-                    L0 = Base64Crypt.encode(L0xorK0, R0);
-                    R0 = prevL0;
+                    String prevX1 = x1;
+                    String x1XorK0 = Base64Crypt.encode(x1, key);
+                    x1 = Base64Crypt.encode(x1XorK0, x2);
+                    x2 = x3;
+                    x3 = x4;
+                    x4 = prevX1;
                 }
-                encodedBlocks.add(pos, L0);
+                encodedBlocks.add(pos, x1 + x2 + x3 + x4);
             }));
             threads.get(pos).start(); // запускаем поток
         }
