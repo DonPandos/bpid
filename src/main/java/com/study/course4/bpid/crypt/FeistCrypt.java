@@ -24,7 +24,7 @@ public class FeistCrypt {
         for(int i = 0; i < roundsCount; i++){ // для каждого раунда
             StringBuilder key = new StringBuilder(); // создаем пустой ключ
             for(int j = 0; j < 16; j++) { // генерируем 16 рандомных символов ключа
-                int rand = r.nextInt(127) + 1;
+                int rand = r.nextInt(26) + 65;
                 key.append((char)rand);
             }
             keys.add(key.toString()); // добавляем ключ в список
@@ -33,7 +33,6 @@ public class FeistCrypt {
         //List<String> encodedBlocks = new ArrayList<>(); // список зашифрованных блоков
         String[] encodedBlocks = new String[blocks.size()];
         List<Thread> threads = new ArrayList<>();
-        System.out.println(blocks.size());
         for(int i = 0; i < blocks.size(); i++){ // для каждого блока
             final int pos = i;
             threads.add(new Thread(() -> { // создаем поток, который шифрует блок
@@ -45,7 +44,6 @@ public class FeistCrypt {
                 String x3 = block.substring(8, 12);
                 String x4 = block.substring(12, 16);
                 for(String key : keys) { //для каждого ключа проводим раунд шифрования
-                    System.out.println("x1 : " + x1.length());
                     String prevX1 = x1;
                     String x1XorK0 = Base64Crypt.encode(x1, key);
                     x1 =  Base64Crypt.encode(x2, x1XorK0);
@@ -68,13 +66,13 @@ public class FeistCrypt {
         // генерируем зашифрованную строку
         StringBuilder resultString = new StringBuilder();
         for(String encodedBlock : encodedBlocks){
-            resultString.append(encodedBlock + "\n");
+            resultString.append(encodedBlock + ",");
         }
-        return new Pair<String, List<String>>(resultString.toString(), keys);
+        return new Pair<>(resultString.toString(), keys);
     }
 
     public static String decode(String encodedString, List<String> keys){
-        String[] encodedBlocks = encodedString.split("\n"); // разбиваем строку на блоки
+        String[] encodedBlocks = encodedString.split(","); // разбиваем строку на блоки
         String[] decodedBlocks = new String[encodedBlocks.length]; // создаем пустой массив для расшифрованных блоков
         List<Thread> threads = new ArrayList<>();
 
@@ -105,13 +103,16 @@ public class FeistCrypt {
                 e.printStackTrace();
             }
         }
-        for(String s : decodedBlocks) System.out.print(s);
-        return null;
+        String result = "";
+        for(String s : decodedBlocks) {
+            result += s;
+        }
+        return result;
     }
 
     public static void main(String[] args) {
-        Pair<String, List<String>> pair = encode(new StringBuilder("Fyukbqcrbt normalon"), 12);
-        decode(pair.getKey(), pair.getValue());
-
+        Pair<String, List<String>> pair = encode(new StringBuilder("Русские символы не люблю"), 12);
+        System.out.println(pair.getKey());
+        System.out.printf(decode(pair.getKey(), pair.getValue()));
     }
 }

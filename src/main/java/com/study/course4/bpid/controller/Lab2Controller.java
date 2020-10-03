@@ -1,26 +1,32 @@
 package com.study.course4.bpid.controller;
 
 import com.study.course4.bpid.crypt.PermutationCrypt;
+import com.study.course4.bpid.dto.FeistCryptEncodeFileRequestDto;
 import com.study.course4.bpid.dto.PermutationDecodeRequestDto;
 import com.study.course4.bpid.dto.PermutationEncodeRequestDto;
+import com.study.course4.bpid.service.FeistCryptService;
 import javafx.util.Pair;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileReader;
+import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @RestController
 @RequestMapping("/lab2")
 public class Lab2Controller {
+
+    @Autowired
+    FeistCryptService feistCryptService;
+
     @PostMapping("/permutation/encode")
     public ResponseEntity permutationEncode(@RequestBody PermutationEncodeRequestDto request){
         Pair<String, String> keyValue = PermutationCrypt.encode(request.getStringToEncode());
@@ -39,8 +45,27 @@ public class Lab2Controller {
     }
 
     @PostMapping("/feistcrypt/encode/file")
-    public ResponseEntity feistCryptEncodeFile(@RequestBody File file){
-        System.out.println(file.getName());
-        return ResponseEntity.ok("123");
+    public ResponseEntity feistCryptEncodeFile(@RequestParam("file") MultipartFile file, @RequestParam("roundsCount") Integer roundsCount){
+        try {
+            Pair<String, String> encodedPair = feistCryptService.encode(new String(file.getBytes()), roundsCount);
+            Map<Object, Object> response = new HashMap<>();
+            response.put("encodedString", encodedPair.getKey());
+            response.put("keys", encodedPair.getValue());
+            return ResponseEntity.ok(response);
+        } catch (IOException e) {
+            return ResponseEntity.ok(e.getMessage());
+        }
+    }
+
+        @PostMapping("/feistcrypt/decode/file")
+    public ResponseEntity feistCryptDecodeFile(@RequestParam("encodedStringFile") MultipartFile encodedStringFile, @RequestParam("keysFile") MultipartFile keysFile){
+        try{
+            String decodedString = feistCryptService.decode(new String(encodedStringFile.getBytes()), new String(keysFile.getBytes()));
+            Map<Object, Object> response = new HashMap<>();
+            response.put("decodedString", decodedString);
+            return ResponseEntity.ok(response);
+        } catch (IOException e){
+            return ResponseEntity.ok(e.getMessage());
+        }
     }
 }
