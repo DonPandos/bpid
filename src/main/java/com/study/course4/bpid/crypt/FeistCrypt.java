@@ -3,6 +3,7 @@ package com.study.course4.bpid.crypt;
 
 import javafx.util.Pair;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
 import java.util.Random;
 
@@ -29,9 +30,10 @@ public class FeistCrypt {
             keys.add(key.toString()); // добавляем ключ в список
         }
 
-        List<String> encodedBlocks = new ArrayList<>(); // список зашифрованных блоков
+        //List<String> encodedBlocks = new ArrayList<>(); // список зашифрованных блоков
+        String[] encodedBlocks = new String[blocks.size()];
         List<Thread> threads = new ArrayList<>();
-        for(String block : blocks) encodedBlocks.add("");
+        System.out.println(blocks.size());
         for(int i = 0; i < blocks.size(); i++){ // для каждого блока
             final int pos = i;
             threads.add(new Thread(() -> { // создаем поток, который шифрует блок
@@ -43,14 +45,15 @@ public class FeistCrypt {
                 String x3 = block.substring(8, 12);
                 String x4 = block.substring(12, 16);
                 for(String key : keys) { //для каждого ключа проводим раунд шифрования
+                    System.out.println("x1 : " + x1.length());
                     String prevX1 = x1;
                     String x1XorK0 = Base64Crypt.encode(x1, key);
-                    x1 = Base64Crypt.encode(x1XorK0, x2);
+                    x1 =  Base64Crypt.encode(x2, x1XorK0);
                     x2 = x3;
                     x3 = x4;
                     x4 = prevX1;
                 }
-                encodedBlocks.add(pos, x1 + x2 + x3 + x4);
+                encodedBlocks[pos] = (x1 + x2 + x3 + x4);
             }));
             threads.get(pos).start(); // запускаем поток
         }
@@ -67,11 +70,48 @@ public class FeistCrypt {
         for(String encodedBlock : encodedBlocks){
             resultString.append(encodedBlock + "\n");
         }
-        System.out.println(resultString);
+        return new Pair<String, List<String>>(resultString.toString(), keys);
+    }
+
+    public static String decode(String encodedString, List<String> keys){
+        String[] encodedBlocks = encodedString.split("\n"); // разбиваем строку на блоки
+        String[] decodedBlocks = new String[encodedBlocks.length]; // создаем пустой массив для расшифрованных блоков
+        List<Thread> threads = new ArrayList<>();
+
+        for(int i = 0; i < encodedBlocks.length; i++){ // foreach block
+            final int pos = i;
+            threads.add(new Thread(() -> {
+                String block = encodedBlocks[pos];
+                String x1 = block.substring(0, block.length()/4);
+                String x2 = block.substring(block.length()/4, block.length()/2);
+                String x3 = block.substring(block.length()/2, (block.length() / 4) + (block.length() / 2));
+                String x4 = block.substring((block.length() / 4) + (block.length() / 2), block.length());
+                for(int j = keys.size() - 1; j >= 0; j--){
+                    String prevX1 = x1;
+                    x1 = x4;
+                    x4 = x3;
+                    x3 = x2;
+                    String x1XorK0 = Base64Crypt.encode(x1, keys.get(j));
+                    x2 = Base64Crypt.decode(prevX1, x1XorK0);
+                }
+                decodedBlocks[pos] = (x1 + x2 + x3 + x4);
+            }));
+            threads.get(pos).start();
+        }
+        for(Thread t : threads) {
+            try {
+                t.join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        for(String s : decodedBlocks) System.out.print(s);
         return null;
     }
 
     public static void main(String[] args) {
-        encode(new StringBuilder("Большая строка должна быть тут, но ее к сожалению нет. очень жаль, что так произошло, но жизнь такая, что поделать. Люблю фрипсы кстати, мой друг тоже их любит"), 8);
+        Pair<String, List<String>> pair = encode(new StringBuilder("Fyukbqcrbt normalon"), 12);
+        decode(pair.getKey(), pair.getValue());
+
     }
 }

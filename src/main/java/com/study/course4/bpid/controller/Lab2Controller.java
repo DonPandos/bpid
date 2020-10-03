@@ -10,7 +10,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileReader;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -32,5 +36,11 @@ public class Lab2Controller {
         String decodedString = PermutationCrypt.decode(new Pair<>(request.getKey(), request.getEncodedString()));
         response.put("decodedString", decodedString);
         return ResponseEntity.ok(response);
+    }
+
+    @PostMapping("/feistcrypt/encode/file")
+    public ResponseEntity feistCryptEncodeFile(@RequestBody File file){
+        System.out.println(file.getName());
+        return ResponseEntity.ok("123");
     }
 }

@@ -4,18 +4,29 @@ import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 
 public class Base64Crypt {
 
     public static String encode(String s, String key) {
-        return base64Encode(xorWithKey(s.getBytes(), key.getBytes()));
+        try {
+            return base64Encode(xorWithKey(s.getBytes("UTF-8"), key.getBytes("UTF-8")));
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     public static String decode(String s, String key) {
-        return new String(xorWithKey(base64Decode(s), key.getBytes()));
+        try {
+            return new String(xorWithKey(base64Decode(s), key.getBytes("UTF-8")));
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
-    private static byte[] xorWithKey(byte[] a, byte[] key) {
+    public static byte[] xorWithKey(byte[] a, byte[] key) {
         byte[] out = new byte[a.length];
         for (int i = 0; i < a.length; i++) {
             out[i] = (byte) (a[i] ^ key[i%key.length]);
