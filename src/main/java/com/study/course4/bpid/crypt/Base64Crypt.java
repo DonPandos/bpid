@@ -19,7 +19,7 @@ public class Base64Crypt {
 
     public static String decode(String s, String key) {
         try {
-            return new String(xorWithKey(base64Decode(s), key.getBytes("UTF-8")));
+            return new String(xorWithKey(base64Decode(new String(s.getBytes("UTF-8"))), key.getBytes("UTF-8")));
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }

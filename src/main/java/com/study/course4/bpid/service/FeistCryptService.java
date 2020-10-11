@@ -17,6 +17,8 @@ public class FeistCryptService {
     }
 
     public String decode(String encodedString, String keys){
+        System.out.println("encodedString: " + encodedString);
+        System.out.println("keys: " + keys);
         List<String> keysList = Arrays.asList(keys.split(","));
         String decodedString = FeistCrypt.decode(encodedString, keysList);
         return decodedString;

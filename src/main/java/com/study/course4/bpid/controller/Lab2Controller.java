@@ -1,7 +1,6 @@
 package com.study.course4.bpid.controller;
 
 import com.study.course4.bpid.crypt.PermutationCrypt;
-import com.study.course4.bpid.dto.FeistCryptEncodeFileRequestDto;
 import com.study.course4.bpid.dto.PermutationDecodeRequestDto;
 import com.study.course4.bpid.dto.PermutationEncodeRequestDto;
 import com.study.course4.bpid.service.FeistCryptService;
@@ -12,10 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -48,6 +44,7 @@ public class Lab2Controller {
     public ResponseEntity feistCryptEncodeFile(@RequestParam("file") MultipartFile file, @RequestParam("roundsCount") Integer roundsCount){
         try {
             Pair<String, String> encodedPair = feistCryptService.encode(new String(file.getBytes()), roundsCount);
+            System.out.println(new String(file.getBytes()));
             Map<Object, Object> response = new HashMap<>();
             response.put("encodedString", encodedPair.getKey());
             response.put("keys", encodedPair.getValue());
@@ -62,7 +59,11 @@ public class Lab2Controller {
         try{
             String decodedString = feistCryptService.decode(new String(encodedStringFile.getBytes()), new String(keysFile.getBytes()));
             Map<Object, Object> response = new HashMap<>();
-            response.put("decodedString", decodedString);
+            response.put("decodedString", new String(decodedString.getBytes("UTF-8")));
+//            File file = new File("src/main/java/com/study/course4/bpid/files/test.txt");
+//            FileWriter fw = new FileWriter(file);
+//            fw.write(decodedString);
+//            fw.close();
             return ResponseEntity.ok(response);
         } catch (IOException e){
             return ResponseEntity.ok(e.getMessage());

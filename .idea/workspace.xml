@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/main/java/com/study/course4/bpid/crypt/FeistCrypt.java" line="32" />
+    <bookmark url="file://$PROJECT_DIR$/src/main/java/com/study/course4/bpid/crypt/FeistCrypt.java" line="31" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="811fb510-bade-4487-945e-b0c775bdc68f" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/study/course4/bpid/dto/FeistCryptEncodeFileRequestDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/study/course4/bpid/service/FeistCryptService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/study/course4/bpid/files/text.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/study/course4/bpid/controller/Lab2Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/study/course4/bpid/controller/Lab2Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/study/course4/bpid/crypt/Base64Crypt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/study/course4/bpid/crypt/Base64Crypt.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/study/course4/bpid/crypt/FeistCrypt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/study/course4/bpid/crypt/FeistCrypt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/study/course4/bpid/dto/FeistCryptEncodeFileRequestDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/study/course4/bpid/service/FeistCryptService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/study/course4/bpid/service/FeistCryptService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/study/course4/bpid/controller/Lab2Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/course4/bpid/controller/Lab2Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/course4/bpid/crypt/FeistCrypt.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/course4/bpid/crypt/FeistCrypt.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/course4/bpid/dto/FeistCryptEncodeFileRequestDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/study/course4/bpid/service/FeistCryptService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/study/course4/bpid/service/FeistCryptService.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,20 +27,32 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="EmailConfiguration.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/study/course4/bpid/config/EmailConfiguration.java">
+      <file leaf-file-name="Lab2Controller.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/study/course4/bpid/controller/Lab2Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="15" column="43" lean-forward="true" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="43" />
+            <state relative-caret-position="106">
+              <caret line="60" column="59" lean-forward="true" selection-start-line="60" selection-start-column="59" selection-end-line="60" selection-end-column="59" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Lab2Controller.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/study/course4/bpid/controller/Lab2Controller.java">
+      <file leaf-file-name="Rezyume.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../Rezyume.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="235">
-              <caret line="51" column="64" lean-forward="true" selection-start-line="51" selection-start-column="64" selection-end-line="51" selection-end-column="64" />
+            <state relative-caret-position="252">
+              <caret line="12" column="11" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Tests.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/study/course4/bpid/Tests.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="294">
+              <caret line="14" column="51" lean-forward="true" selection-start-line="14" selection-start-column="51" selection-end-line="14" selection-end-column="51" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -46,36 +63,10 @@
       <file leaf-file-name="FeistCryptService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/study/course4/bpid/service/FeistCryptService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="20" selection-start-line="20" selection-end-line="20" />
+            <state relative-caret-position="357">
+              <caret line="21" column="29" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FeistCryptEncodeFileRequestDto.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/study/course4/bpid/dto/FeistCryptEncodeFileRequestDto.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WebConfig.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/study/course4/bpid/config/WebConfig.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="14" column="55" selection-start-line="14" selection-start-column="55" selection-end-line="14" selection-end-column="55" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#634#635#0" expanded="true" />
-                <element signature="e#696#697#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -93,8 +84,8 @@
       <file leaf-file-name="PermutationCrypt.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/study/course4/bpid/crypt/PermutationCrypt.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
-              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+            <state relative-caret-position="442">
+              <caret line="81" selection-start-line="81" selection-end-line="81" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -102,14 +93,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FeistCrypt.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="FeistCrypt.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/study/course4/bpid/crypt/FeistCrypt.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="113" column="89" selection-start-line="113" selection-start-column="89" selection-end-line="113" selection-end-column="89" />
+            <state relative-caret-position="147">
+              <caret line="10" column="103" selection-start-line="10" selection-start-column="103" selection-end-line="10" selection-end-column="103" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/study/course4/bpid/files/test.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="168">
+              <caret line="8" column="26" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -117,17 +117,17 @@
       <file leaf-file-name="Runnable.java" pinned="false" current-in-tab="false">
         <entry file="jar://C:/Program Files/Java/jdk1.8.0_241/src.zip!/java/lang/Runnable.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="630">
+            <state relative-caret-position="924">
               <caret line="67" column="25" selection-start-line="67" selection-start-column="25" selection-end-line="67" selection-end-column="25" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Base64Crypt.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Base64Crypt.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/study/course4/bpid/crypt/Base64Crypt.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-217">
-              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+            <state relative-caret-position="315">
+              <caret line="26" column="5" lean-forward="true" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -143,6 +143,11 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>il</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -163,13 +168,14 @@
         <option value="$PROJECT_DIR$/src/main/java/com/study/course4/bpid/config/MyConfig.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/study/course4/bpid/config/CorsFilter.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/study/course4/bpid/config/WebConfig.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/study/course4/bpid/crypt/PermutationCrypt.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/study/course4/bpid/crypt/Base64Crypt.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/study/course4/bpid/service/FileStorageService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/study/course4/bpid/dto/FeistCryptEncodeFileRequestDto.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/study/course4/bpid/controller/Lab2Controller.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/study/course4/bpid/service/FeistCryptService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/study/course4/bpid/crypt/PermutationCrypt.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/study/course4/bpid/crypt/FeistCrypt.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/study/course4/bpid/controller/Lab2Controller.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/study/course4/bpid/Tests.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/study/course4/bpid/crypt/Base64Crypt.java" />
       </list>
     </option>
   </component>
@@ -190,8 +196,8 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
+    <option name="x" value="1075" />
+    <option name="y" value="286" />
     <option name="width" value="976" />
     <option name="height" value="1056" />
   </component>
@@ -201,8 +207,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -243,24 +247,6 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="bpid" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bpid_labs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bpid" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="bpid" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bpid_labs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bpid" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="bpid" type="462c0819:PsiDirectoryNode" />
               <item name="crypt" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -279,13 +265,19 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="bpid" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="files" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bpid_labs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -318,7 +310,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.FeistCrypt">
+  <component name="RunManager" selected="Application.Tests">
     <configuration name="FeistCrypt" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.study.course4.bpid.crypt.FeistCrypt" />
       <module name="bpid_labs" />
@@ -337,6 +329,17 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.study.course4.bpid.crypt.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+    </configuration>
+    <configuration name="Tests" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.study.course4.bpid.Tests" />
+      <module name="bpid_labs" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.study.course4.bpid.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -390,9 +393,11 @@
       <item itemvalue="Spring Boot.SpringBootMain" />
       <item itemvalue="Application.PermutationCrypt" />
       <item itemvalue="Application.FeistCrypt" />
+      <item itemvalue="Application.Tests" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Tests" />
         <item itemvalue="Application.FeistCrypt" />
         <item itemvalue="Application.PermutationCrypt" />
       </list>
@@ -419,19 +424,28 @@
       <workItem from="1601371544087" duration="3998000" />
       <workItem from="1601491399883" duration="20404000" />
       <workItem from="1601644316401" duration="5490000" />
-      <workItem from="1601711218710" duration="14960000" />
+      <workItem from="1601711218710" duration="16310000" />
+      <workItem from="1601907932328" duration="2845000" />
+      <workItem from="1601975433566" duration="5004000" />
+      <workItem from="1602066105336" duration="3209000" />
+      <workItem from="1602148865621" duration="8232000" />
+      <workItem from="1602174268513" duration="123000" />
+      <workItem from="1602174769522" duration="1117000" />
+      <workItem from="1602194647793" duration="597000" />
+      <workItem from="1602236366423" duration="667000" />
+      <workItem from="1602404128017" duration="3563000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="68401000" />
+    <option name="totallyTimeSpent" value="95108000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="13" sideWeight="0.18697916" side_tool="true" weight="0.55941117" />
+      <window_info anchor="bottom" id="Event Log" order="13" sideWeight="0.19166666" side_tool="true" weight="0.44058886" />
       <window_info anchor="right" id="Maven Projects" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
       <window_info id="Capture Tool" order="7" />
@@ -442,16 +456,16 @@
       <window_info id="UI Designer" order="4" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49895832" weight="0.39957938" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.49479166" weight="0.32912722" />
+      <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.49427083" weight="0.32912722" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
       <window_info id="Image Layers" order="3" />
       <window_info anchor="bottom" id="Java Enterprise" order="9" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="bottom" id="Version Control" order="11" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.8130208" visible="true" weight="0.44058886" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.80833334" visible="true" weight="0.44058886" />
       <window_info anchor="bottom" id="Spring" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49791667" weight="0.3575184" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24791667" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24791667" />
       <window_info id="Web" order="6" side_tool="true" />
       <window_info anchor="right" id="Theme Preview" order="7" />
       <window_info id="Favorites" order="5" side_tool="true" />
@@ -460,7 +474,7 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.17560463" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -475,47 +489,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/study/course4/bpid/dto/PermutationDecodeRequestDto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/study/course4/bpid/dto/PermutationEncodeRequestDto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1134">
-          <caret line="54" column="21" selection-start-line="54" selection-start-column="21" selection-end-line="54" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/study/course4/bpid/crypt/PermutationCrypt.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1617">
-          <caret line="77" column="31" selection-start-line="77" selection-start-column="31" selection-end-line="77" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/study/course4/bpid/controller/Lab2Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="20" column="35" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/study/course4/bpid/config/EmailConfiguration.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="231">
@@ -773,33 +746,31 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/study/course4/bpid/config/EmailConfiguration.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
-          <caret line="15" column="43" lean-forward="true" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="43" />
+          <caret line="15" column="43" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="43" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/study/course4/bpid/service/FileStorageService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="7" column="35" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_241/src.zip!/java/lang/Runnable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="67" column="25" selection-start-line="67" selection-start-column="25" selection-end-line="67" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/study/course4/bpid/service/FileStorageService.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/study/course4/bpid/config/WebConfig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
+        <state relative-caret-position="168">
           <caret line="14" column="55" selection-start-line="14" selection-start-column="55" selection-end-line="14" selection-end-column="55" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#634#635#0" expanded="true" />
             <element signature="e#696#697#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/study/course4/bpid/dto/FeistCryptEncodeFileRequestDto.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/study/course4/bpid/files/text.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/text.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="6" lean-forward="true" selection-start-column="6" selection-end-column="6" />
         </state>
       </provider>
     </entry>
@@ -810,40 +781,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_241/src.zip!/java/lang/Runnable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="924">
+          <caret line="67" column="25" selection-start-line="67" selection-start-column="25" selection-end-line="67" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/study/course4/bpid/files/test.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="8" column="26" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/study/course4/bpid/crypt/FeistCrypt.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="10" column="103" selection-start-line="10" selection-start-column="103" selection-end-line="10" selection-end-column="103" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/study/course4/bpid/crypt/PermutationCrypt.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/study/course4/bpid/crypt/Base64Crypt.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-217">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/study/course4/bpid/dto/FeistCryptEncodeFileRequestDto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/study/course4/bpid/service/FeistCryptService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
+        <state relative-caret-position="442">
+          <caret line="81" selection-start-line="81" selection-end-line="81" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -852,18 +817,45 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/study/course4/bpid/controller/Lab2Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="51" column="64" lean-forward="true" selection-start-line="51" selection-start-column="64" selection-end-line="51" selection-end-column="64" />
+        <state relative-caret-position="106">
+          <caret line="60" column="59" lean-forward="true" selection-start-line="60" selection-start-column="59" selection-end-line="60" selection-end-column="59" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/study/course4/bpid/crypt/FeistCrypt.java">
+    <entry file="file://$PROJECT_DIR$/../Rezyume.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="12" column="11" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/study/course4/bpid/service/FeistCryptService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="29" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/study/course4/bpid/Tests.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="294">
-          <caret line="113" column="89" selection-start-line="113" selection-start-column="89" selection-end-line="113" selection-end-column="89" />
+          <caret line="14" column="51" lean-forward="true" selection-start-line="14" selection-start-column="51" selection-end-line="14" selection-end-column="51" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/study/course4/bpid/crypt/Base64Crypt.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="26" column="5" lean-forward="true" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

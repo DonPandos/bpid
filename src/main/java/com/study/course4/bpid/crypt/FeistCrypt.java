@@ -3,7 +3,6 @@ package com.study.course4.bpid.crypt;
 
 import javafx.util.Pair;
 import java.util.ArrayList;
-import java.util.Base64;
 import java.util.List;
 import java.util.Random;
 
@@ -37,8 +36,6 @@ public class FeistCrypt {
             final int pos = i;
             threads.add(new Thread(() -> { // создаем поток, который шифрует блок
                 String block = blocks.get(pos); // получаем блок
-//                String L0 = block.substring(0, 8); // делим на правую и левую часть
-//                String R0 = block.substring(8, 16);
                 String x1 = block.substring(0, 4);
                 String x2 = block.substring(4, 8);
                 String x3 = block.substring(8, 12);
@@ -110,9 +107,4 @@ public class FeistCrypt {
         return result;
     }
 
-    public static void main(String[] args) {
-        Pair<String, List<String>> pair = encode(new StringBuilder("Русские символы не люблю"), 12);
-        System.out.println(pair.getKey());
-        System.out.printf(decode(pair.getKey(), pair.getValue()));
-    }
 }
