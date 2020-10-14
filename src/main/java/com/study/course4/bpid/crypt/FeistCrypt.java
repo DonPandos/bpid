@@ -10,8 +10,9 @@ public class FeistCrypt {
 
     public static Pair<String, List<String>> encode(StringBuilder stringToEncode, Integer roundsCount){
         while(stringToEncode.length() % 16 != 0){
-            stringToEncode.append(' ');
+            stringToEncode.append('Ъ');
         } // заполняем строку пробелами, пока длина не станет кратной 16 байтам(128 битам)
+        System.out.println("ss: " + stringToEncode);
         List<String> blocks = new ArrayList<>(); // создаем список блоков
         for(int i = 0; i < stringToEncode.length(); i+=16){
             blocks.add(stringToEncode.substring(i, i+16));
@@ -104,7 +105,7 @@ public class FeistCrypt {
         for(String s : decodedBlocks) {
             result += s;
         }
-        return result;
+        return result.replaceAll("Ъ", " ");
     }
 
 }

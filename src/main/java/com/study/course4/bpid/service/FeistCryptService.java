@@ -10,6 +10,7 @@ import java.util.List;
 public class FeistCryptService {
 
     public Pair<String, String> encode(String stringToEncode, Integer roundsCount){
+        stringToEncode = stringToEncode.replaceAll(" ", "Ъ");
         Pair<String, List<String>> encodedPair = FeistCrypt.encode(new StringBuilder(stringToEncode), roundsCount);
         String keys = "";
         for(String key : encodedPair.getValue()) keys += (key + ",");
@@ -21,6 +22,7 @@ public class FeistCryptService {
         System.out.println("keys: " + keys);
         List<String> keysList = Arrays.asList(keys.split(","));
         String decodedString = FeistCrypt.decode(encodedString, keysList);
+        decodedString = decodedString.replaceAll("Ъ", " ");
         return decodedString;
     }
 
