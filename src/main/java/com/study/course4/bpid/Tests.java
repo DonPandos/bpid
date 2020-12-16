@@ -1,87 +1,83 @@
 package com.study.course4.bpid;
 
-import com.study.course4.bpid.crypt.Base64Crypt;
-import com.study.course4.bpid.crypt.FeistCrypt;
-import javafx.util.Pair;
 import lombok.SneakyThrows;
+import org.bouncycastle.jce.provider.BouncyCastleProvider;
+import org.bouncycastle.util.encoders.Hex;
 
 import java.io.UnsupportedEncodingException;
-import java.util.List;
+import java.nio.charset.StandardCharsets;
+import java.security.*;
+
 
 public class Tests {
+    @SneakyThrows
     public static void main(String[] args) throws UnsupportedEncodingException {
+        Security.addProvider(new BouncyCastleProvider());
+//        SecretKey key = KeyGenerator.getInstance("DES").generateKey();
+//        Cipher cipher = Cipher.getInstance("DES/ECB/PKCS5Padding");
+//        cipher.init(Cipher.ENCRYPT_MODE, key);
+//        String strToEnc = "Эта строка зашифруетсяTut eshe english symbols1234567890-=!@#$%^&*()_+{}|:{}?><L:?";
+//        byte[] utf8 = strToEnc.getBytes("UTF-8");
+//        byte[] enc = cipher.doFinal(utf8);
+//        System.out.println(new String(enc));
+//        Cipher cipher1 = Cipher.getInstance("DES");
+//        cipher1.init(Cipher.DECRYPT_MODE, key);
+//        byte[] dec = cipher1.doFinal(enc);
+//        System.out.println(new String(dec));
+//        System.out.println(Base64.getEncoder().encodeToString(key.getEncoded()));
+//
+//        String toEnc = "This string will be encodedЧто по русским буквам то?!@#$%^&*()_{}|!№;%:?*)_ХЭЮ,,ЗХЪЙЦУЗJAIDSOAIVQOWR \n2342wrewfw\nqwrqerq";
+//        SecretKey key = KeyGenerator.getInstance("DES").generateKey(); // генерируем ключ
+//        DESCrypt desCrypt = new DESCrypt(key); // создаем объект шифра
+//        String enc = desCrypt.encrypt(toEnc); //шифруем массив байтов Base64 и преобразуем в строку
+//        System.out.println("Encrypted string: " + enc);
+//        String decoded = desCrypt.decrypt(enc);
+//        System.out.println("Decrypted string: " + new String(decoded));
+//
+//        KeyPair keyPair = KeyPairGenerator.getInstance("RSA").generateKeyPair();
+//        String toEnc = "This is string которую будем шифровать";
+//        String ecnrypted = RSACrypt.encrypt(toEnc, keyPair.getPublic());
+//        System.out.println("Ecnrypted: " + ecnrypted);
+//        String decrypted = RSACrypt.decrypt(ecnrypted, keyPair.getPrivate());
+//        System.out.println("Decrypted: " + decrypted);
+//        System.out.println(Base64.getEncoder().encodeToString(keyPair.getPublic().getEncoded()));
 
-      String toEncode = "Русский текст тут Here so many enРусский текст тут Here so many english text Here so many english textHere so many english textHere so many english textHere so many english textHere so many english textHere so many english textHere so many english textHere so many e124564656786780!@#$%^&*()_+[]nglish textHere so many english textHere so many english textHere so many english textHere so many english text";
-        Pair<String, List<String>> pair = FeistCrypt.encode(new StringBuilder(toEncode), 8);
-        //System.out.println("encoded: " + pair.getKey());
-        String decodedString = FeistCrypt.decode(pair.getKey(), pair.getValue());
-        System.out.println(decodedString);
-////        String toEncode = "Love your penis";
-////        String encodedString = Base64Crypt.base64Encode(toEncode.getBytes());
-////        System.out.println("encodedStirng : " + encodedString);
-////        String key = "hello";
-////        String encodedTwice = stringXor(encodedString.getBytes(), key.getBytes());
-////        System.out.println("encodedTwice: " + encodedTwice);
-////        String decodedFromTwice = stringXor(encodedTwice.getBytes(), key.getBytes());
-////        System.out.println(decodedFromTwice);
-////        String decodedString = new String(Base64Crypt.base64Decode(decodedFromTwice.getBytes()));
-////        System.out.println("decodedString : " + decodedString);
-//        String toEncode = "Строка для кодирdfgdfgd фваыва ыва ыва овани";
-//        byte[] encodedString = encode(toEncode, "ключ");
-//        String decodedString = decode(encodedString, "ключ");
-//        System.out.println(decodedString);
-//        String text = "hello man привет как дела";
-//        String textbase = Base64.getEncoder().encodeToString(text.getBytes("UTF-8"));
-//        System.out.println(textbase.length());
-//        System.out.println(text.getBytes().length);
-//        String koi = new String(text.getBytes("UTF-8"), ""); // string in koi8-
-//        System.out.println(koi.getBytes().length);
-//        System.out.println(koi);
-//        String key = new String("русские".getBytes("UTF-8"), "KOI8-R");
-//        System.out.println(key.length());
-//        System.out.println(key);
-//        String encoded = new String(encode(text, key), "KOI8-R");
-//        System.out.println(encoded);
-//        String decoded = new String(decode(encoded.getBytes(), key).getBytes("KOI8-R"));
-//        System.out.println(decoded);
+        Signature signature = Signature.getInstance("SHA256withDSA");
+
+        SecureRandom secureRandom = new SecureRandom();
+        KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("DSA");
+        KeyPair keyPair = keyPairGenerator.generateKeyPair();
+
+        signature.initSign(keyPair.getPrivate(), secureRandom);
+
+        byte[] data = "helloworld".getBytes("UTF-8");
+        signature.update(data);
+
+        System.out.println(new String(data));
+
+        byte[] signData = signature.sign();
+
+        System.out.println(new String(signData));
+
+        signature.initVerify(keyPair.getPublic());
+
+        signature.update(data);
+        System.out.println(signature.verify(signData));
+
+        //
+
+        String originalString = "Эта строка с ЭЦП";
+        MessageDigest digest = MessageDigest.getInstance("SHA-256");
+        byte[] hash = digest.digest(
+                originalString.getBytes(StandardCharsets.UTF_8));
+        String sha256hex = new String(Hex.encode(hash));
+
+        System.out.println(sha256hex);
 
 
-        String encoded = Base64Crypt.encode("QWERTYUIOP{}ASDFGHJKL:|ZXCVBNM<>?qwertyuiop[]asdfghjkl;zxcvbnm,./йцукенгшщзхъфывапролджэячсмитьбю.ЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ,", "ASFSDF");
-       // System.out.println(Base64Crypt.decode(encoded, "ASFSDF"));
-    }
-
-    public static String stringXor(byte[] str, byte[] key){
-        byte[] out = new byte[str.length];
-        for(int i = 0; i < str.length; i++){
-            out[i] = (byte) (str[i] ^ key[i % key.length]);
-        }
-        return String.valueOf(out);
-    }
-
-    @SneakyThrows
-    public static byte[] encode(String pText, String pKey) {
-        byte[] txt = pText.getBytes();
-        byte[] key = pKey.getBytes();
-        byte[] res = new byte[txt.length];
-        System.out.println(pText.length());
-        System.out.println(txt.length);
-
-        for (int i = 0; i < txt.length; i++) {
-            res[i] = (byte) (txt[i] ^ key[i % key.length]);
-        }
-
-        return res;
-    }
-
-    @SneakyThrows
-    public static String decode(byte[] pText, String pKey) {
-        byte[] res = new byte[pText.length];
-        byte[] key = pKey.getBytes();
-
-        for (int i = 0; i < pText.length; i++) {
-            res[i] = (byte) (pText[i] ^ key[i % key.length]);
-        }
-
-        return new String(res);
+//        KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("RSA");
+//        keyPairGenerator.initialize(1024, SecureRandom.getInstance("SHA1PRNG", "SUN"));
+//        KeyPair keyPair = keyPairGenerator.generateKeyPair();
+//        System.out.println(Base64.getEncoder().encodeToString(keyPair.getPrivate().getEncoded()));
     }
 }

@@ -24,16 +24,9 @@ public class Base64Crypt {
         byte[] out = new byte[a.length];
         for (int i = 0; i < a.length; i++) {
             out[i] = (byte) (a[i] ^ key[i % key.length]);
+            System.out.println("i(" + i + ");KEYLENGTH(" + new String(key) + ") : " + key.length);
         }
         return out;
-
-//        StringBuilder sb = new StringBuilder();
-//        String s = String.valueOf(a);
-//        String key = String.valueOf(secret);
-//        for(int i = 0; i < s.length(); i++)
-//            sb.append((char)(s.charAt(i) ^ key.charAt(i % key.length())));
-//        String result = sb.toString();
-//        return result.getBytes();
     }
 
     public static byte[] base64Decode(String s) {
@@ -77,37 +70,4 @@ public class Base64Crypt {
         return new String(res);
     }
 
-//    public static String encode(String s, String key) {
-//        try {
-//            return base64Encode(xorWithKey(s.getBytes("UTF-8"), key.getBytes("UTF-8")));
-//        } catch (UnsupportedEncodingException e) {
-//            e.printStackTrace();
-//        }
-//        return null;
-//    }
-//
-//    public static String decode(String s, String key) {
-//        return new String(xorWithKey(base64Decode(s), key.getBytes("UTF-8")));
-//    }
-//
-//    public static byte[] xorWithKey(byte[] a, byte[] key) {
-//        byte[] out = new byte[a.length];
-//        for (int i = 0; i < a.length; i++) {
-//            out[i] = (byte) (a[i] ^ key[i%key.length]);
-//        }
-//        return out;
-//    }
-//
-//    public static byte[] base64Decode(String s) {
-//        try {
-//            BASE64Decoder d = new BASE64Decoder();
-//            return d.decodeBuffer(s);
-//        } catch (IOException e) {throw new RuntimeException(e);}
-//    }
-//
-//    public static String base64Encode(byte[] bytes) {
-//        BASE64Encoder enc = new BASE64Encoder();
-//        return enc.encode(bytes).replaceAll("\\s", "");
-//
-//    }
 }

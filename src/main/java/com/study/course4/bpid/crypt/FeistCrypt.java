@@ -6,6 +6,7 @@ import lombok.SneakyThrows;
 
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
 import java.util.Random;
 
@@ -13,10 +14,12 @@ public class FeistCrypt {
 
     @SneakyThrows
     public static Pair<String, List<String>> encode(StringBuilder stringToEncode, Integer roundsCount){
-        //stringToEncode = new StringBuilder(new String(stringToEncode.toString().getBytes(), "UTF-16"));
+         // заполняем строку пробелами, пока длина не станет кратной 16 байтам(128 битам)
+        stringToEncode = new StringBuilder(Base64.getMimeEncoder().withoutPadding().encodeToString(stringToEncode.toString().getBytes()));
+        System.out.println("BEFORE : " + stringToEncode);
         while(stringToEncode.length() % 16 != 0){
             stringToEncode.append('_');
-        } // заполняем строку пробелами, пока длина не станет кратной 16 байтам(128 битам)
+        }
         //System.out.println("ss: " + stringToEncode);
         List<String> blocks = new ArrayList<>(); // создаем список блоков
         for(int i = 0; i < stringToEncode.length(); i+=16){
@@ -28,11 +31,12 @@ public class FeistCrypt {
         List<String> keys = new ArrayList<>(); // создаем пустой список ключей
         for(int i = 0; i < roundsCount; i++){ // для каждого раунда
             StringBuilder key = new StringBuilder(); // создаем пустой ключ
-            for(int j = 0; j < 16; j++) { // генерируем 16 рандомных символов ключа
+            for(int j = 0; j < 4; j++) { // генерируем 16 рандомных символов ключа
                 int rand = r.nextInt(26) +  65;
                 key.append((char)rand);
             }
-            keys.add(key.toString()); // добавляем ключ в список
+            System.out.println("i(key) : " + key);
+            keys.add(Base64.getEncoder().encodeToString(key.toString().getBytes())); // добавляем ключ в список
         }
 
         //List<String> encodedBlocks = new ArrayList<>(); // список зашифрованных блоков
@@ -41,21 +45,17 @@ public class FeistCrypt {
         for(int i = 0; i < blocks.size(); i++){ // для каждого блока
             final int pos = i;
             threads.add(new Thread(() -> { // создаем поток, который шифрует блок
-                String block = "";
-                try {
-                    block = new String(blocks.get(pos).getBytes("UTF-8")); // получаем блок
-                } catch (UnsupportedEncodingException e) {
-                    e.printStackTrace();
-                }
+                String block = blocks.get(pos); // получаем блок
                 System.out.println(pos + ": " + block);
                 String x1 = block.substring(0, 4);
                 String x2 = block.substring(4, 8);
                 String x3 = block.substring(8, 12);
                 String x4 = block.substring(12, 16);
                 for(String key : keys) { //для каждого ключа проводим раунд шифрования
+                    System.out.println("key (" + keys.indexOf(key) + ") : " + key);
                     String prevX1 = x1;
-                    String x1XorK0 = Base64Crypt.encode(x1, key);
-                    x1 =  Base64Crypt.encode(x2, x1XorK0);
+                    byte[] x1XorK0 = Base64Crypt.xorWithKey(x1.getBytes(), key.getBytes());
+                    x1 =  new String(Base64Crypt.xorWithKey(x2.getBytes(), x1XorK0));
                     x2 = x3;
                     x3 = x4;
                     x4 = prevX1;
@@ -99,8 +99,8 @@ public class FeistCrypt {
                     x1 = x4;
                     x4 = x3;
                     x3 = x2;
-                    String x1XorK0 = Base64Crypt.encode(x1, keys.get(j));
-                    x2 = Base64Crypt.decode(prevX1, x1XorK0);
+                    byte[] x1XorK0 = Base64Crypt.xorWithKey(x1.getBytes(), keys.get(j).getBytes());
+                    x2 = new String(Base64Crypt.xorWithKey(prevX1.getBytes(), x1XorK0));
                 }
                 decodedBlocks[pos] = (x1 + x2 + x3 + x4);
             }));
@@ -117,7 +117,10 @@ public class FeistCrypt {
         for(String s : decodedBlocks) {
             result += s;
         }
-        return result.replaceAll("_", " ");
+        result = result.replaceAll("_", " ");
+        System.out.println("AFTER : " + result);
+        result = new String(Base64.getMimeDecoder().decode(result));
+        return result;
     }
 
 }
